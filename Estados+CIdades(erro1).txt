@@ -12,6 +12,8 @@ Acre|AC|Manoel
 Acre|AC|Marechal Urbano
 Acre|AC|Placido de Castro
 Acre|AC|Porto Acre
+
+Amapá|AP|Amapá
 Acre|AC|Porto Walter
 cachoro quente|AC2|Rio Branco
 Acre|AC|Rodrigues Alves
@@ -48,3 +50,49 @@ Alagoas|AL|Bonifácio
 Alagoas|AL|Branquinha
 Alagoas|AL|Cajarana
 Alagoas|AL|Cajueiro
+Mato Grosso do Sul|MS|Água Boa
+Mato Grosso do Sul|MS|Carumbe
+Mato Grosso do Sul|MS|Cassilândia
+Mato Grosso do Sul|MS|Costa Rica
+Mato Grosso do Sul|MS|Coxim
+Mato Grosso do Sul|MS|Cristalina
+Mato Grosso do Sul|MS|Cruzaltina
+Mato Grosso do Sul|MS|Culturama
+Mato Grosso|MT|Curvelândia
+Mato Grosso|MT|Paranaita
+Mato Grosso|MT|Paranatinga
+Mato Grosso|MT|Passagem da Conceição
+Mato Grosso|MT|Pedra Preta
+Mato Grosso|MT|Peixoto de Azevedo
+Mato Grosso|MT|Pirizal
+Mato Grosso|MT|Placa de Santo Antonio
+Mato Grosso|MT|Planalto da Serra
+Mato Grosso|MT|Poçone
+Mato Grosso|MT|Pombas
+Mato Grosso|MT|Pontal do Araguaiá
+Mato Grosso|MT|Ponte Branca
+Mato Grosso|MT|Ponte de Pedra
+Mato Grosso|MT|Pontes E Lacerda
+Mato Grosso|MT|Pontinopolis
+Mato Grosso|MT|Porto Alegre do Norte
+Mato Grosso|MT|Porto dos Gauchos
+Mato Grosso|MT|Porto Esperidião
+Mato Grosso|MT|Porto Estrela
+Mato Grosso|MT|Poxoreo
+Pará|PA|Abaetetuba
+Pará|PA|Abel Figueiredo
+Pará|PA|Acara
+Pará|PA|Afua
+Pará|PA|Agropolis Bela Vista
+Pará|PA|Água Azul do Norte
+Pará|PA|Água Fria
+Pará|PA|Alenquer
+Pará|PA|Algodoal
+Pará|PA|Almeirim
+Pará|PA|Almoco
+Pará|PA|Alta Para
+Pará|PA|Altamira
+Pará|PA|Alter do Chão
+Pará|PA|Alvorada
+Pará|PA|Americano
+Pará|PA|Anajas
