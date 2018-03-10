@@ -1,4 +1,4 @@
-﻿Acre|AC|Acrelândia
+﻿Acre2|AC|Acrelândia
 Acre|AC|Capixaba
 Acre|AC2|Brasileia
 Acre|A|Bujari
@@ -13,7 +13,7 @@ Acre|AC|Marechal Urbano
 Acre|AC|Placido de Castro
 Acre|AC|Porto Acre
 Acre|AC|Porto Walter
-Acre|AC|Rio Branco
+cachoro quente|AC2|Rio Branco
 Acre|AC|Rodrigues Alves
 Acre|AC|Santa Rosa
 Acre|AC|Sena Madureira
@@ -21,7 +21,7 @@ Acre|AC|Senador Guiomard
 Acre|AC|Tarauacá
 Acre|AC|Xapuri
 
-Alagoas|AL|Alecrim
+Alag|AL|Alecrim
 Alagoas|AL|Anadia
 Alagoas|AL|Anel
 Alagoas|AL|Anum Novo

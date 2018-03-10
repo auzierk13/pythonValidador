@@ -16,9 +16,10 @@ for linha in arqErrado:
     if(linha == ""):
         #print("Linha em branco")
         print("Erro na linha "+str(indexLinha) +":Linha em Branco")
-        break
+        continue
     ##*****End Linha em branco *****##
     estado,sigla,cidade = linha.split("|")
+    hasEstado = False
     hasSigla = False
 
     ##***** Sigla escrita errada *****##
@@ -36,37 +37,42 @@ for linha in arqErrado:
         if(linha.find(linhaCerta)!= -1): #print("Estado correto")
             #print("Estado correto")
             #print(str(indexLinha) +" "+linha+": "+linhaCerta)
+            hasEstado = True #Existe Estado 
             hasSigla=True #Existe Sigla 
             break
         ##******End Estado Correto ****##
 
         estadoCorreto,siglaCorreta,cidadeCorreta = linhaCerta.split("|")
+        ##***** Estado encontrado *****##
+        if(estado == estadoCorreto ):
+            hasEstado= True
+        ##***** End encontrado *****#
+
+        ##***** Erro na escrita estado *****##
+        if((not hasEstado) and estado.find(estadoCorreto)!= -1):
+            hasEstado= True
+            print("Erro na linha "+str(indexLinha) +":"+estado+ " Estado escrito errado com mais palavras. Talvez queira dizer ["+estadoCorreto+"]")
+        
+        if((not hasEstado) and estadoCorreto.find(estado)!= -1 ):
+            hasEstado= True
+            print("Erro na linha "+str(indexLinha) +":"+estado+ " Estado escrito com menos palavras. Talvez queira dizer ["+estadoCorreto+"]")
+        
+
+
+        ##***** Sigla não existe (Duas letra mais sigla não encontrado)*****##    
         if(sigla == siglaCorreta):
             hasSigla=True
-            
-
-
-        
-
-
-        
-        ##***** Sigla não existe (Duas letra mais sigla não encontrado)*****##
-            
-            
-        ##***** Sigla não existe (Duas letra mais sigla não encontrado)*****##
-
-
-        
+        ##***** End Sigla não existe (Duas letra mais sigla não encontrado)*****##    
 
     
     estadosCidadesCorretos.seek(0) #Volta para o inicio do arquivo
+    if(not hasEstado):
+        print("Erro na linha "+str(indexLinha) +":"+estado+ " Estado nao exite")
+        hasEstado = False
     if(not hasSigla):
         print("Erro na linha "+str(indexLinha) +":"+sigla+ " sigla nao encontrada")
         hasSigla = False
-    """
-    if indexLinha > 50:
-        break
-    """ 
+ 
 
 estadosCidadesErrados.close
 estadosCidadesCorretos.close
