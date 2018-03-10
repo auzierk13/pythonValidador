@@ -9,6 +9,37 @@ print("Metodo read () : \n")
 #buscaformat = re.compile(r'\w[a-zA-Z0-9]{1,} ?\|[a-zA-Z0-9]{1,}\|[a-zA-Z0-9]{1,}')
 buscaformat = re.compile(r'.{1,}\|.{1,}\|.{1,}')
 
+
+#cria dicionario de estados_Cidades
+dicCoutry = {"estados":[],"siglas":[]}
+indexMax=0
+for linhaCerta in estadosCidadesCorretos:
+    linhaCerta = linhaCerta.rstrip() #Limpa linha em branco
+    estadoCorreto,siglaCorreta,cidadeCorreta = linhaCerta.split("|")
+    dicHasEstado=False
+    
+    for estado in dicCoutry["estados"]:
+        if(estadoCorreto.find(estado)!=-1): #Estado ja adicionado
+            dicHasEstado = True
+           
+            #print(estado)
+            break
+    if(not dicHasEstado): #Estado não encontrado no dicionario
+        dicCoutry["estados"].append(estadoCorreto)# Adiciona Estado
+        dicCoutry["siglas"].append(siglaCorreta) #Adiciona Sigla
+        dicCoutry[estadoCorreto]=[cidadeCorreta]
+        dicHasEstado = True
+        #print(estadoCorreto)
+    indexMax+=1
+    if(indexMax<100):
+        dicCoutry[estadoCorreto].append(cidadeCorreta)
+#print(dicCoutry["siglas"])
+
+print(dicCoutry)
+
+
+estadosCidadesCorretos.seek(0) #Volta para o inicio do arquivo
+"""
 indexLinha=0
 for linha in estadosCidadesErrados:
     indexLinha+=1
@@ -65,6 +96,12 @@ for linha in estadosCidadesErrados:
         ##***** Estado encontrado *****##
         if(estado == estadoCorreto ):
             hasEstado= True
+            if((not hasSigla) and sigla!= siglaCorreta):
+                 hasSigla =True
+                 error = "Erro na linha "+str(indexLinha) +":["+sigla+ "] nao pertence ao estado " +estadoCorreto+". Sigla esperada "+siglaCorreta +"\n"
+                 print(error)
+                 log.write(error)
+            
         ##***** End encontrado *****#
 
         ##***** Erro na escrita estado *****##
@@ -74,14 +111,15 @@ for linha in estadosCidadesErrados:
             print(error)
             log.write(error)
         #Mato Grosso Mato Grosso do Sul
-        """
+
+       
         if((not hasEstado) and estadoCorreto.find(estado)!= -1 ):
             hasEstado= True
             error="Erro na linha "+str(indexLinha) +":["+estado+ "] Estado escrito com menos palavras. Talvez queira dizer ["+estadoCorreto+"]\n"
             print(error)
             log.write(error)
         
-        """
+       
 
         ##***** Sigla não existe (Duas letra mais sigla não encontrado)*****##    
         if(sigla == siglaCorreta):
@@ -100,7 +138,7 @@ for linha in estadosCidadesErrados:
         print(error)
         hasSigla = False
  
-
+"""
 estadosCidadesErrados.close()
 estadosCidadesCorretos.close()
 log.close()
