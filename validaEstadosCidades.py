@@ -11,20 +11,30 @@ indexLinha=0
 for linha in arqErrado:
     indexLinha+=1
     linha = linha.rstrip() #Limpa linha em branco
+    
+    
     for linhaCerta in arqCorreto:
         linhaCerta = linhaCerta.rstrip() #Limpa linha em branco
         ##******Estado Correto********##
         if(linha.find(linhaCerta)!= -1): #print("Estado correto")
-            print("Estado correto")
+            #print("Estado correto")
             print(str(indexLinha) +" "+linha+": "+linhaCerta)
             break
         ##******End Estado Correto ****##
         ##*****Linha em branco *****##
         if(linha == ""):
-            print("Linha em branco")
+            #print("Linha em branco")
             print("Erro na linha "+str(indexLinha) +" :Linha em Branco")
             break
         ##*****End Linha em branco *****##
+        estado,sigla,cidade = linha.split("|")
+        ##***** Sigla escrita errada *****##
+        if(len(sigla)>2):
+            print("Erro na linha "+str(indexLinha) +":"+sigla+" sigla escrita errada com > 2 letras")
+        if(len(sigla) <2):
+            print("Erro na linha "+str(indexLinha) +":"+sigla+" sigla escrita errada com < 2 letras")
+
+        ##***** End Sigla escrita errada *****#
         else:
             if indexLinha > 50:
                 break
