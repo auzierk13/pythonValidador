@@ -1,0 +1,32 @@
+Segue um desafio para ser resolvido com um programa em Java ou C/C++.
+
+ 
+
+Enunciado:
+
+ 
+
+Existem 2 arquivos .TXT, um deles é uma lista correta de cidades
+ (contêm todas as cidades do país, escritas de maneira correta)
+ e o outro, também uma lista de cidades mas com alguns dados errados
+ (essa lista sofreu inserções do usuário, por isso tem erros de português, etc).
+ Monte um programa que identifique o erro na segunda lista (arquivo),
+ escrevendo o resultado da diferença em um terceiro arquivo .TXT.
+ Neste arquivo de diferença, eu preciso identificar exatamente onde
+ está o erro e não somente exibir o erro.
+
+ 
+
+O que deve ser entregue:
+
+ 
+
+·        Arquivos Fontes (Zipado)
+
+·        Instruções para o deploy/compilação da aplicação
+
+·        Modo de operação do programa.
+
+ 
+
+Quando deve ser entregue: até 17h de 08/03/2018
