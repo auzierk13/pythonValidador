@@ -1,0 +1,1 @@
+manipulador=open(,r)
