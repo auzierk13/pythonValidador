@@ -1,0 +1,50 @@
+﻿Acre|AC|Acrelândia
+Acre|AC|Capixaba
+Acre|AC2|Brasileia
+Acre|A|Bujari
+Acre|BB|Assis Brasil
+Acre|AC|Cruzeiro do Sul
+Acre|AC|Epitaciolândia
+Acre|AC|Feijó
+Acre|AC|Jordão
+Acre|AC|Mâncio Lima
+Acre|AC|Manoel
+Acre|AC|Marechal Urbano
+Acre|AC|Placido de Castro
+Acre|AC|Porto Acre
+Acre|AC|Porto Walter
+Acre|AC|Rio Branco
+Acre|AC|Rodrigues Alves
+Acre|AC|Santa Rosa
+Acre|AC|Sena Madureira
+Acre|AC|Senador Guiomard
+Acre|AC|Tarauacá
+Acre|AC|Xapuri
+
+Alagoas|AL|Alecrim
+Alagoas|AL|Anadia
+Alagoas|AL|Anel
+Alagoas|AL|Anum Novo
+Alagoas|AL|Anum Velho
+Alagoas|AL|Arapiraca
+Alagoas|AL|Atalaiá
+Alagoas|AL|Baixa da Onça
+Alagoas|AL|Baixa do Capim
+Alagoas|AL|Balsamo
+Alagoas|AL|Bananeiras
+Alagoas|AL|Barra de Santo Antonio
+Alagoas|AL|Barra de São Miguel
+Alagoas|AL|Barra do Bonifácio
+Alagoas|AL|Barra Grande
+Alagoas|AL|Batalha
+Alagoas|AL|Batingas
+Alagoas|AL|Belem
+Alagoas|AL|Belo Monte
+Alagoas|AL|Boa Sorte
+Alagoas|AL|Boa Vista
+Alagoas|AL|Boca da Mata
+Alagoas|AL|Bom Jardim
+Alagoas|AL|Bonifácio
+Alagoas|AL|Branquinha
+Alagoas|AL|Cajarana
+Alagoas|AL|Cajueiro
