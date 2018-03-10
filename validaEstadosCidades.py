@@ -1,3 +1,4 @@
+import re
 estadosCidadesErrados  = open('Estados+CIdades(erro1).txt','r',encoding='UTF8')
 estadosCidadesCorretos = open('Estados+CIdades.txt','r', encoding='UTF8')
 
@@ -6,6 +7,7 @@ print("Metodo read () : \n")
 #Entrada de dados
 arqCorreto= estadosCidadesCorretos.readlines()
 arqErrado= estadosCidadesErrados.readlines()
+buscaformat = re.compile(r'\w[a-zA-Z0-9]{1,} ?\|[a-zA-Z0-9]{1,}\|[a-zA-Z0-9]{1,}')
 
 indexLinha=0
 for linha in arqErrado:
@@ -18,16 +20,26 @@ for linha in arqErrado:
         print("Erro na linha "+str(indexLinha) +":Linha em Branco")
         continue
     ##*****End Linha em branco *****##
+
+
+
+    resultado = buscaformat.search(linha)
+
+    if (not resultado):
+        print("Erro na linha "+str(indexLinha)+"["+ linha + "] Erro no formato. Formato esperado *|*|*")
+        continue
+        
+    
     estado,sigla,cidade = linha.split("|")
     hasEstado = False
     hasSigla = False
 
     ##***** Sigla escrita errada *****##
     if(len(sigla)>2):
-        print("Erro na linha "+str(indexLinha) +":"+sigla+" sigla escrita errada com > 2 letras")
+        print("Erro na linha "+str(indexLinha) +": Sigla["+sigla+"]  escrita errada com > 2 letras")
         hasSigla=True
     if(len(sigla) <2):
-        print("Erro na linha "+str(indexLinha) +":"+sigla+" sigla escrita errada com < 2 letras")
+        print("Erro na linha "+str(indexLinha) +": Sigla["+sigla+"] escrita errada com < 2 letras")
         hasSigla=True
     ##***** End Sigla escrita errada *****#
         
@@ -51,11 +63,11 @@ for linha in arqErrado:
         ##***** Erro na escrita estado *****##
         if((not hasEstado) and estado.find(estadoCorreto)!= -1):
             hasEstado= True
-            print("Erro na linha "+str(indexLinha) +":"+estado+ " Estado escrito errado com mais palavras. Talvez queira dizer ["+estadoCorreto+"]")
+            print("Erro na linha "+str(indexLinha) +":["+estado+ "] Estado escrito errado com mais palavras. Talvez queira dizer ["+estadoCorreto+"]")
         
         if((not hasEstado) and estadoCorreto.find(estado)!= -1 ):
             hasEstado= True
-            print("Erro na linha "+str(indexLinha) +":"+estado+ " Estado escrito com menos palavras. Talvez queira dizer ["+estadoCorreto+"]")
+            print("Erro na linha "+str(indexLinha) +":["+estado+ "] Estado escrito com menos palavras. Talvez queira dizer ["+estadoCorreto+"]")
         
 
 
@@ -67,10 +79,10 @@ for linha in arqErrado:
     
     estadosCidadesCorretos.seek(0) #Volta para o inicio do arquivo
     if(not hasEstado):
-        print("Erro na linha "+str(indexLinha) +":"+estado+ " Estado nao exite")
+        print("Erro na linha "+str(indexLinha) +":Estado ["+estado+ "] nao exite")
         hasEstado = False
     if(not hasSigla):
-        print("Erro na linha "+str(indexLinha) +":"+sigla+ " sigla nao encontrada")
+        print("Erro na linha "+str(indexLinha) +":["+sigla+ "] sigla nao encontrada")
         hasSigla = False
  
 
