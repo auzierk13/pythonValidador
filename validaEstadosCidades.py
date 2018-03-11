@@ -1,144 +1,50 @@
 import re
+import splitEstados
 #Entrada de dados
-estadosCidadesErrados  = open('Estados+CIdades(erro1).txt','r',encoding='UTF8')
+estadosCidadesErrados  = open('Estados+CIdades(erro).txt','r',encoding='UTF8')
 estadosCidadesCorretos = open('Estados+CIdades.txt','r', encoding='UTF8')
 log = open("log.txt", 'w', encoding='UTF8')
+
 
 print("Metodo read () : \n")
 
 #buscaformat = re.compile(r'\w[a-zA-Z0-9]{1,} ?\|[a-zA-Z0-9]{1,}\|[a-zA-Z0-9]{1,}')
 buscaformat = re.compile(r'.{1,}\|.{1,}\|.{1,}')
+#arqErrados = estadosCidadesErrados.readlines()
 
-
-#cria dicionario de estados_Cidades
-dicCoutry = {"estados":[],"siglas":[]}
-indexMax=0
-for linhaCerta in estadosCidadesCorretos:
-    linhaCerta = linhaCerta.rstrip() #Limpa linha em branco
-    estadoCorreto,siglaCorreta,cidadeCorreta = linhaCerta.split("|")
-    dicHasEstado=False
-    
-    for estado in dicCoutry["estados"]:
-        if(estadoCorreto.find(estado)!=-1): #Estado ja adicionado
-            dicHasEstado = True
-           
-            #print(estado)
-            break
-    if(not dicHasEstado): #Estado não encontrado no dicionario
-        dicCoutry["estados"].append(estadoCorreto)# Adiciona Estado
-        dicCoutry["siglas"].append(siglaCorreta) #Adiciona Sigla
-        dicCoutry[estadoCorreto]=[cidadeCorreta]
-        dicHasEstado = True
-        #print(estadoCorreto)
-    indexMax+=1
-    if(indexMax<100):
-        dicCoutry[estadoCorreto].append(cidadeCorreta)
-#print(dicCoutry["siglas"])
-
-print(dicCoutry)
-
-
-estadosCidadesCorretos.seek(0) #Volta para o inicio do arquivo
-"""
 indexLinha=0
-for linha in estadosCidadesErrados:
-    indexLinha+=1
-    linha = linha.rstrip() #Limpa linha em branco
-    
-    ##*****Linha em branco *****##
-    if(linha == ""):
-        #print("Linha em branco")
-        error = "Erro na linha "+str(indexLinha) +":Linha em Branco\n"
-        print(error)
-        log.write(error)
-        continue
-    ##*****End Linha em branco *****##
+#cria dicionario de estados_Cidades
+dicEstados = {}
 
-
-    ##*****Verifica formato do texto*****##
-    resultado = buscaformat.search(linha)
-
-    if (not resultado):
-        print("Erro na linha "+str(indexLinha)+"["+ linha + "] Erro no formato. Formato esperado *|*|*\n")
-        continue
-        
-    ##*****Verifica formato do texto*****##
-    
-    estado,sigla,cidade = linha.split("|")
-    hasEstado = False
-    hasSigla = False
-
-    ##***** Sigla escrita errada *****##
-    if(len(sigla)>2):
-        error ="Erro na linha "+str(indexLinha) +": Sigla["+sigla+"]  escrita errada com > 2 letras\n"
-        print(error)
-        log.write(error)
-        hasSigla=True
-    if(len(sigla) <2):
-        error= "Erro na linha "+str(indexLinha) +": Sigla["+sigla+"] escrita errada com < 2 letras\n"
-        print(error)
-        log.write(error)
-        hasSigla=True
-    ##***** End Sigla escrita errada *****#
-        
+def povoarDicionario():
     for linhaCerta in estadosCidadesCorretos:
         linhaCerta = linhaCerta.rstrip() #Limpa linha em branco
-        ##******Estado Correto********##
-        if(linha.find(linhaCerta)!= -1): #print("Estado correto")
-            #print("Estado correto")
-            #print(str(indexLinha) +" "+linha+": "+linhaCerta)
-            hasEstado = True #Existe Estado 
-            hasSigla=True #Existe Sigla 
-            break
-        ##******End Estado Correto ****##
-
         estadoCorreto,siglaCorreta,cidadeCorreta = linhaCerta.split("|")
-        ##***** Estado encontrado *****##
-        if(estado == estadoCorreto ):
-            hasEstado= True
-            if((not hasSigla) and sigla!= siglaCorreta):
-                 hasSigla =True
-                 error = "Erro na linha "+str(indexLinha) +":["+sigla+ "] nao pertence ao estado " +estadoCorreto+". Sigla esperada "+siglaCorreta +"\n"
-                 print(error)
-                 log.write(error)
-            
-        ##***** End encontrado *****#
+        dicHasEstado=False
+        #print("Adicionando estados: "+ str(len(estados)))
+   
+        if(len(dicEstados)== 0): #primeiro termo
+            dicEstados[estadoCorreto]=siglaCorreta
+            continue
+        for estados in dicEstados:
+            if(estadoCorreto == estados):
+                dicHasEstado=True
+                break
 
-        ##***** Erro na escrita estado *****##
-        if((not hasEstado) and estado.find(estadoCorreto)!= -1):
-            hasEstado= True
-            error = "Erro na linha "+str(indexLinha) +":["+estado+ "] Estado escrito errado com mais palavras. Talvez queira dizer ["+estadoCorreto+"]\n"
-            print(error)
-            log.write(error)
-        #Mato Grosso Mato Grosso do Sul
+        if(not dicHasEstado):
+            dicEstados[estadoCorreto]=siglaCorreta
+    estadosCidadesCorretos.seek(0) #Volta para inicio do arquivo
+    #*** Fim de povoar dicionario
 
-       
-        if((not hasEstado) and estadoCorreto.find(estado)!= -1 ):
-            hasEstado= True
-            error="Erro na linha "+str(indexLinha) +":["+estado+ "] Estado escrito com menos palavras. Talvez queira dizer ["+estadoCorreto+"]\n"
-            print(error)
-            log.write(error)
+
         
-       
+povoarDicionario()
+print(len(dicEstados))
+splitEstados.povoar3ArquivoEstados(dicEstados)
 
-        ##***** Sigla não existe (Duas letra mais sigla não encontrado)*****##    
-        if(sigla == siglaCorreta):
-            hasSigla=True
-        ##***** End Sigla não existe (Duas letra mais sigla não encontrado)*****##    
 
-    
-    estadosCidadesCorretos.seek(0) #Volta para o inicio do arquivo
-    if(not hasEstado):
-        error = "Erro na linha "+str(indexLinha) +":Estado ["+estado+ "] nao exite\n" 
-        print(error)
-        log.write(error)
-        hasEstado = False
-    if(not hasSigla):
-        error = "Erro na linha "+str(indexLinha) +":["+sigla+ "] sigla nao encontrada\n"
-        print(error)
-        hasSigla = False
- 
-"""
-estadosCidadesErrados.close()
+
 estadosCidadesCorretos.close()
+estadosCidadesErrados.close()
+
 log.close()
