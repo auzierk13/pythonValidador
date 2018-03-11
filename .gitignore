@@ -1,7 +1,7 @@
 #Meus
-parse1.txt
-parse2.txt
-parse3.txt
+parseCorreto*.txt
+parseErrado*.txt
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

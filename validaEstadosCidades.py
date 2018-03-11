@@ -1,18 +1,13 @@
-import re
+
 import splitEstados
 #Entrada de dados
-estadosCidadesErrados  = open('Estados+CIdades(erro).txt','r',encoding='UTF8')
+
 estadosCidadesCorretos = open('Estados+CIdades.txt','r', encoding='UTF8')
-log = open("log.txt", 'w', encoding='UTF8')
+
 
 
 print("Metodo read () : \n")
 
-#buscaformat = re.compile(r'\w[a-zA-Z0-9]{1,} ?\|[a-zA-Z0-9]{1,}\|[a-zA-Z0-9]{1,}')
-buscaformat = re.compile(r'.{1,}\|.{1,}\|.{1,}')
-#arqErrados = estadosCidadesErrados.readlines()
-
-indexLinha=0
 #cria dicionario de estados_Cidades
 dicEstados = {}
 
@@ -34,17 +29,17 @@ def povoarDicionario():
         if(not dicHasEstado):
             dicEstados[estadoCorreto]=siglaCorreta
     estadosCidadesCorretos.seek(0) #Volta para inicio do arquivo
+    estadosCidadesCorretos.close()
     #*** Fim de povoar dicionario
 
 
         
 povoarDicionario()
 print(len(dicEstados))
-splitEstados.povoar3ArquivoEstados(dicEstados)
+splitEstados.povoar3ArquivoEstadosCorretos(dicEstados)
+splitEstados.povoar3ArquivoEstadosErrados(dicEstados)
 
 
 
-estadosCidadesCorretos.close()
-estadosCidadesErrados.close()
 
-log.close()
+
