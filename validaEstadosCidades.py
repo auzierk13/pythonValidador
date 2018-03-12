@@ -1,4 +1,4 @@
-
+import findErros
 import splitEstados
 #Entrada de dados
 
@@ -39,7 +39,7 @@ print(len(dicEstados))
 splitEstados.povoar3ArquivoEstadosCorretos(dicEstados)
 splitEstados.povoar3ArquivoEstadosErrados(dicEstados)
 
-
+findErros.mainErrosGenericos()
 
 
 

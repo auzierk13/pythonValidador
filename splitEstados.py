@@ -1,7 +1,7 @@
 import re
 
 estadosCidadesCorretos = open('Estados+CIdades.txt','r', encoding='UTF8')
-estadosCidadesErrados  = open('Estados+CIdades(erro).txt','r',encoding='UTF8')
+estadosCidadesErrados  = open('Estados+CIdades(erro1).txt','r',encoding='UTF8')
 
 inicioCorreto1 = open("parseCorreto1.txt", 'w', encoding='UTF8')
 meioCorreto2 = open("parseCorreto2.txt", 'w', encoding='UTF8')
@@ -59,9 +59,10 @@ def povoar3ArquivoEstadosErrados(dicEstados):
         #linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
         if(linhaErrada == "\n"):
             #print("Linha em branco")
-            error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha) +":Linha em Branco\n"
+            error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha) +": Linha em Branco\n"
             print(error)
             log.write(error)
+            indexLinha+=1
             continue
         else:
             ##*****Verifica formato do texto*****##
@@ -69,9 +70,10 @@ def povoar3ArquivoEstadosErrados(dicEstados):
 
             if (not resultado):
                 linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
-                error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha)+"["+ linhaErrada + "] Erro no formato. Formato esperado *|*|*\n"
+                error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha)+"["+ linhaErrada + "]: Erro no formato. Formato esperado *|*|*\n"
                 print(error)
                 log.write(error)
+                indexLinha+=1
                 continue
         
             ##*****Verifica formato do texto*****##
@@ -99,8 +101,13 @@ def povoar3ArquivoEstadosErrados(dicEstados):
                 hasEstado= True #Estado encontrado
                 continue
             indexEstado+=1
-        if(not hasEstado): #Caso onde o estado não foi encontrado
+        if(not hasEstado): #Caso Estado não exite
              sobraErrado4.write(str(indexLinha)+"|"+linhaErrada)
+             linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
+             error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha)+"["+ linhaErrada + "]: Estado["+estadoCorreto+"] Estado nao existe.\n"
+             print(error)
+             log.write(error)
+             
         indexLinha+=1
 
     estadosCidadesErrados.seek(0) #Volta para inicio
