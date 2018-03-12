@@ -60,7 +60,7 @@ def povoar3ArquivoEstadosErrados(dicEstados):
         if(linhaErrada == "\n"):
             #print("Linha em branco")
             error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha) +": Linha em Branco\n"
-            print(error)
+            print(error.rstrip())
             log.write(error)
             indexLinha+=1
             continue
@@ -71,7 +71,7 @@ def povoar3ArquivoEstadosErrados(dicEstados):
             if (not resultado):
                 linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
                 error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha)+"["+ linhaErrada + "]: Erro no formato. Formato esperado *|*|*\n"
-                print(error)
+                print(error.rstrip())
                 log.write(error)
                 indexLinha+=1
                 continue
@@ -108,13 +108,13 @@ def povoar3ArquivoEstadosErrados(dicEstados):
                 linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
                 error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha)+"["+ linhaErrada + "]: Erro na escrita. Estado deve iniciando com maiúsculo\n"
                 sobraErrado4.write(str(indexLinha)+"|"+linhaErrada+"\n")
-                print(error)
+                print(error.rstrip())
                 log.write(error)
             else:
                  sobraErrado4.write(str(indexLinha)+"|"+linhaErrada)
                  linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
                  error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha)+"["+ linhaErrada + "]: Estado["+estadoErrado+"] Estado nao existe.\n"
-                 print(error)
+                 print(error.rstrip())
                  log.write(error)
                  
         indexLinha+=1

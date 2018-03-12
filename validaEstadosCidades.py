@@ -35,11 +35,11 @@ def povoarDicionario():
 
         
 povoarDicionario()
-print(len(dicEstados))
+#print(len(dicEstados))
 splitEstados.povoar3ArquivoEstadosCorretos(dicEstados)
 splitEstados.povoar3ArquivoEstadosErrados(dicEstados)
 
-findErros.mainErrosGenericos()
+findErros.mainErrosGenericos(dicEstados)
 
 
 
