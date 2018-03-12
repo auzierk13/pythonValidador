@@ -1,7 +1,7 @@
 import re
 
 estadosCidadesCorretos = open('Estados+CIdades.txt','r', encoding='UTF8')
-estadosCidadesErrados  = open('Estados+CIdades(erro1).txt','r',encoding='UTF8')
+estadosCidadesErrados  = open('Estados+CIdades(erro).txt','r',encoding='UTF8')
 
 inicioCorreto1 = open("parseCorreto1.txt", 'w', encoding='UTF8')
 meioCorreto2 = open("parseCorreto2.txt", 'w', encoding='UTF8')

@@ -3,18 +3,18 @@ import re
 estadosCidadesCorretos = open('Estados+CIdades.txt','r', encoding='UTF8')
 
 #grupo 1
-inicioCorreto1 = open("parseCorreto1.txt", 'r', encoding='UTF8')
-inicioErrado1 = open("parseErrado1.txt", 'r', encoding='UTF8')
+inicioCorreto1 = open("parseCorreto1.txt", 'w+', encoding='UTF8')
+inicioErrado1 = open("parseErrado1.txt", 'w+', encoding='UTF8')
 
 #grupo 2
-meioCorreto2 = open("parseCorreto2.txt", 'r', encoding='UTF8')
-meioErrado2 = open("parseErrado2.txt", 'r', encoding='UTF8')
+meioCorreto2 = open("parseCorreto2.txt", 'w+', encoding='UTF8')
+meioErrado2 = open("parseErrado2.txt", 'w+', encoding='UTF8')
 
 #grupo 3
-fimCorreto3 = open("parseCorreto3.txt", 'r', encoding='UTF8')
-fimErrado3 = open("parseErrado3.txt", 'r', encoding='UTF8')
+fimCorreto3 = open("parseCorreto3.txt", 'w+', encoding='UTF8')
+fimErrado3 = open("parseErrado3.txt", 'w+', encoding='UTF8')
 
-spaceOfErrors =open("parseErrado4.txt", 'a+', encoding='UTF8')
+spaceOfErrors =open("parseErrado4.txt", 'w+', encoding='UTF8')
 
 
 log = open("log.txt", 'a', encoding='UTF8')
@@ -183,6 +183,21 @@ def erroCidade():
         
     spaceOfErrors.seek(0)
 
+def ordenarLog():
+    """
+    log = open("log.txt", 'r+', encoding='UTF8')
+    print("Ordenar Log")
+    listLogLine= log.readlines()
+    palavras_ordenadas = sorted(listLogLine)
+    print(palavras_ordenadas)
+   
+    for lineLog in listLogLine:
+        print("*******"+lineLog)
+        break
+    
+    #log.write("Vai")
+    log.close()
+    """
     
 def mainErrosGenericos(dicEstados):
    #Busca em grupo 1 
@@ -200,8 +215,14 @@ def mainErrosGenericos(dicEstados):
 
    
    spaceOfErrors.close()
+
+   
    log.close()
 
+   #ordenarLog()
+
+
+   
 
     
     
