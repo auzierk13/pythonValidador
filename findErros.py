@@ -153,6 +153,15 @@ def erroCidade():
             if(cidade == cidadeCorreto):
                 hasCidadeCorreta=True
                 #print("Mostra linha 1 "+ linhaCorreta)
+                if(estado != estadoCorreto):
+                    error = index+"|Erro na linha "+index+"["+linhaCidade+"]:Cidade "+cidade+" nao pertence a esse estado." 
+                    print(error)
+                    log.write(error+"\n")
+                else:
+                    error = index+"|Erro na linha "+index+"["+linhaCidade+"]:Cidade "+cidade+" nao pertence a essa sigla." 
+                    print(error)
+                    log.write(error+"\n")
+                
                 break
 
 

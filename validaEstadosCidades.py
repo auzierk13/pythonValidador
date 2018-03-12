@@ -6,6 +6,7 @@ estadosCidadesCorretos = open('Estados+CIdades.txt','r', encoding='UTF8')
 
 
 
+
 print("Metodo read () : \n")
 
 #cria dicionario de estados_Cidades

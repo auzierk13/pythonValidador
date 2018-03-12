@@ -17,6 +17,7 @@ Acre|AC|Placido de Castro
 Acre|AC|Porto Acre
 Acre|AC|Porto Walter
 Acre|AC|Rio Branco
+Alagoas|AC|Rio Branco
 Acre|AC|Rio Branco121221
 Acre|AC|Rodrigues Alves
 Acre|AC|Santa Rosa
