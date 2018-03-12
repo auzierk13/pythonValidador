@@ -8,6 +8,7 @@ Acre|AC|Cruzeiro do Sul
 Acre|AC|Epitaciolândia
 Acre|AC|Feijó
 Acre|AC|Jordão
+Acre|AL|Jordão
 Acre|AC|Mâncio Lima
 Acre|AC|Manoel
 Acre|AC|Marechal Urbano

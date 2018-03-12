@@ -72,6 +72,9 @@ def erroSigla(dicEstados):
     print("Busca de erro nas siglas")
     #print(list(dicEstados.values()))
     listSiglas = list(dicEstados.values())
+    listEstadosSigla = list(dicEstados.items())
+    #print(listEstadosSigla)
+    #print(len(listEstadosSigla))
     spaceOfErrors.seek(0)
 
     
@@ -83,8 +86,16 @@ def erroSigla(dicEstados):
         
         for siglaCorreta in listSiglas:
             if(siglaCorreta == sigla):
-                hasSiglaCorreta=True #Sigla esta correta
-                break
+                hasSiglaCorreta=True #Sigla existe esta correta
+                for estados in listEstadosSigla:
+                    estadosValidos,siglaValidos = estados
+                    if((estado==estadosValidos) and (sigla!=siglaValidos)):
+                        error = index+"|Erro na linha "+index+"["+siglaTest+"]: Sigla "+sigla+" não confere com o estado deveria ser "+siglaValidos+"." 
+                        print(error)
+                        log.write(error+"\n")
+                        break
+    
+                break #fim do loop listSiglas
 
         if(not hasSiglaCorreta):
             linhaSigla = estado+"|"+sigla+ "|"+cidade
