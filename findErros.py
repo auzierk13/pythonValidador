@@ -68,7 +68,32 @@ def buscaErrosGenericosGrupo(arqCerto, arqErrado):
     arqErrado.close()
 
 
+def erroSigla(dicEstados):
+    print("Busca de erro nas siglas")
+    #print(list(dicEstados.values()))
+    listSiglas = list(dicEstados.values())
+    spaceOfErrors.seek(0)
 
+    
+    for siglaTest in spaceOfErrors:
+        siglaTest = siglaTest.rstrip() #Limpa linha em branco
+        index,estado,sigla,cidade = siglaTest.split("|")
+        #print(index+" "+sigla)
+        hasSiglaCorreta=False
+        
+        for siglaCorreta in listSiglas:
+            if(siglaCorreta == sigla):
+                hasSiglaCorreta=True #Sigla esta correta
+                break
+
+        if(not hasSiglaCorreta):
+            #print("Erro "+index+" "+sigla)
+            if(sigla.islower()):
+                print(index+"| Erro na linha"+index+"["+siglaTest+"]:"+sigla+" Sigla estar em minusculo.")
+                #log.write(index+"\n")
+
+            
+        hasSiglaCorreta=False
         
     
 
@@ -84,7 +109,7 @@ def mainErrosGenericos(dicEstados):
    #Busca em grupo 3
    #buscaErrosGenericosGrupo(fimCorreto3,fimErrado3)
 
-   #erroSigla(dicEstados)
+   erroSigla(dicEstados)
   
 
    
