@@ -76,38 +76,47 @@ def povoar3ArquivoEstadosErrados(dicEstados):
                 indexLinha+=1
                 continue
         
-            ##*****Verifica formato do texto*****##
         #print(linhaErrada)
 
-        estadoCorreto,siglaCorreta,cidadeCorreta = linhaErrada.split("|")
+        estadoErrado,siglaErrada,cidadeErrada = linhaErrada.split("|")
         indexEstado=0
+        
+            ##*****End Verifica formato do texto*****##
        #index =0 8
         hasEstado= False
         for estado in listChavesEstados: #Busca em lista de estados
-            if((estadoCorreto == estado) and (indexEstado>= 0 and indexEstado<= 8)):
+            if((estadoErrado == estado) and (indexEstado>= 0 and indexEstado<= 8)):
                 inicioErrado1.write(str(indexLinha)+"|"+linhaErrada)
                 hasEstado= True #Estado encontrado
                 continue
 
             #index =9 17
-            if((estadoCorreto == estado) and (indexEstado>= 9 and indexEstado<= 17)):
+            if((estadoErrado == estado) and (indexEstado>= 9 and indexEstado<= 17)):
                 meioErrado2.write(str(indexLinha)+"|"+linhaErrada)
                 hasEstado= True #Estado encontrado
                 continue
 
             #index =18 26
-            if((estadoCorreto == estado) and (indexEstado>= 18 and indexEstado<= 26)):
+            if((estadoErrado == estado) and (indexEstado>= 18 and indexEstado<= 26)):
                 fimErrado3.write(str(indexLinha)+"|"+linhaErrada)
                 hasEstado= True #Estado encontrado
                 continue
             indexEstado+=1
+            
         if(not hasEstado): #Caso Estado não exite
-             sobraErrado4.write(str(indexLinha)+"|"+linhaErrada)
-             linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
-             error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha)+"["+ linhaErrada + "]: Estado["+estadoCorreto+"] Estado nao existe.\n"
-             print(error)
-             log.write(error)
-             
+            if(not (estadoErrado.istitle()) ): #Deve iniciar com maiusculo
+                linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
+                error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha)+"["+ linhaErrada + "]: Erro na escrita. Estado deve iniciando com maiúsculo\n"
+                sobraErrado4.write(str(indexLinha)+"|"+linhaErrada+"\n")
+                print(error)
+                log.write(error)
+            else:
+                 sobraErrado4.write(str(indexLinha)+"|"+linhaErrada)
+                 linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
+                 error = str(indexLinha)+"|"+"Erro na linha "+str(indexLinha)+"["+ linhaErrada + "]: Estado["+estadoErrado+"] Estado nao existe.\n"
+                 print(error)
+                 log.write(error)
+                 
         indexLinha+=1
 
     estadosCidadesErrados.seek(0) #Volta para inicio

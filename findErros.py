@@ -13,7 +13,7 @@ meioErrado2 = open("parseErrado2.txt", 'r', encoding='UTF8')
 fimCorreto3 = open("parseCorreto3.txt", 'r', encoding='UTF8')
 fimErrado3 = open("parseErrado3.txt", 'r', encoding='UTF8')
 
-sobraErrado4 =open("parseErrado4.txt", 'a', encoding='UTF8')
+spaceOfErrors =open("parseErrado4.txt", 'a', encoding='UTF8')
 
 log = open("log.txt", 'w', encoding='UTF8')
 
@@ -25,7 +25,7 @@ def buscaErrosGenericosGrupo(arqCerto, arqErrado):
     arqCerto.seek(0)
     arqErrado.seek(0)
 
-    
+    print("Inicio da busca")
     for linhaErrada in arqErrado:
         #print(linhaErrada)
         linhaErrada = linhaErrada.rstrip() #Limpa linha em branco
@@ -51,13 +51,13 @@ def buscaErrosGenericosGrupo(arqCerto, arqErrado):
             
         arqCerto.seek(0)
         if(not linhaSemErros):
-            print(linhaErrada+"\n")
+            print(linhaErrada)
             linhaSemErros = False
-            sobraErrado4.write(linhaErrada+"\n")
+            spaceOfErrors.write(linhaErrada+"\n")
         
-        
-    print(arqCerto)
-    print(arqErrado)
+    print("Fim da busca") 
+    #print(arqCerto)
+    #print(arqErrado)
 
     arqCerto.seek(0)
     arqErrado.seek(0)
@@ -72,11 +72,13 @@ def mainErrosGenericos():
    #Busca em grupo 1 
    buscaErrosGenericosGrupo(inicioCorreto1,inicioErrado1)
 
+   #Busca em grupo 2
    buscaErrosGenericosGrupo(meioCorreto2,meioErrado2)
-   
+
+   #Busca em grupo 3
    buscaErrosGenericosGrupo(fimCorreto3,fimErrado3)
    
-   sobraErrado4.close()
+   spaceOfErrors.close()
    log.close()
 
 

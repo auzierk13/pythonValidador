@@ -2194,8 +2194,9 @@ Goiás|GO|Mutunopolis
 Goiás|GO|Natinopolis
 Goiás|GO|Nazario
 Goiás|GO|Neropolis
-Goiás|GO|Niquelândia
+goiás|GO|Niquelândia
 Goiás|GO|Nova America
+Goiás|go|Nova America2
 Goiás|GO|Nova Aurora
 Goiás|GO|Nova Crixas
 Goiás|GO|Nova Gloria
