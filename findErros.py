@@ -16,7 +16,7 @@ fimErrado3 = open("parseErrado3.txt", 'r', encoding='UTF8')
 spaceOfErrors =open("parseErrado4.txt", 'a+', encoding='UTF8')
 
 
-log = open("log.txt", 'w', encoding='UTF8')
+log = open("log.txt", 'a', encoding='UTF8')
 
 # arquivoErrado recebe o grupo de arquivos {certosX,erradoX} para busca de erros
 
@@ -87,10 +87,30 @@ def erroSigla(dicEstados):
                 break
 
         if(not hasSiglaCorreta):
-            #print("Erro "+index+" "+sigla)
-            if(sigla.islower()):
-                print(index+"| Erro na linha"+index+"["+siglaTest+"]:"+sigla+" Sigla estar em minusculo.")
-                #log.write(index+"\n")
+            linhaSigla = estado+"|"+sigla+ "|"+cidade
+            print(linhaSigla)
+            if(len(sigla)!=2):
+                if(len(sigla) < 2):
+                    error = index+"|Erro na linha "+index+"["+linhaSigla+"]: Sigla "+sigla+" possui menos caracteres." 
+                    print(error)
+                    log.write(error+"\n")
+                    
+                else:
+                    error= index+"|Erro na linha "+index+"["+linhaSigla+"]: Sigla "+sigla+" possui mais caracteres."
+                    print(error)
+                    log.write(error+"\n")
+                    
+            else:
+                if(sigla.islower()):
+                    error = index+"|Erro na linha "+index+"["+linhaSigla+"]: Sigla "+sigla+" estar em minusculo."
+                    print(error)
+                    log.write(error+"\n")
+                else:
+                    print("Erro "+index+" "+sigla)
+                    error = index+"|Erro na linha "+index+"["+linhaSigla+"]:Sigla "+sigla+" nao existe." 
+                    print(error)
+                    log.write(error+"\n")
+                    
 
             
         hasSiglaCorreta=False

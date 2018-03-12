@@ -120,9 +120,9 @@ Alagoas|AL|Messias
 Alagoas|AL|Minador do Negrão
 Alagoas|AL|Monteirópolis
 Alagoas|AL|Moreira
-Alagoas|AL|Munguba
-Alagoas|AL|Murici
-Alagoas|AL|Novo Lino
+Alagoas|A|Munguba
+Alagoas|AL2|Murici
+Alagoas|BB|Novo Lino
 Alagoas|AL|Olho D Água Grande
 Alagoas|AL|Olho D'Água Das Flores
 Alagoas|AL|Olho D'Água De Cima
